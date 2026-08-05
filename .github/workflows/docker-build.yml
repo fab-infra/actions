@@ -58,6 +58,6 @@ jobs:
         tags: ${{ steps.meta.outputs.tags }}
         labels: ${{ steps.meta.outputs.labels }}
         platforms: ${{ inputs.docker-platform }}
-        push: true
+        push: ${{ !startsWith(github.ref, 'refs/heads/dependabot/') }}
         cache-from: type=gha
         cache-to: type=gha,mode=max
